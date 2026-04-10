@@ -18,22 +18,21 @@ Personal portfolio website built with Flask, HTML templates, and static CSS/JS a
 ## Project Structure
 
 ```text
-portfolio/
-  app.py
-  requirements.txt
-  README.md
-  static/
-    css/
-    js/
-    images/
-  templates/
-    base.html
-    index.html
-    about.html
-    projects.html
-    skills.html
-    sports.html
-    contact.html
+app.py
+requirements.txt
+README.md
+static/
+  css/
+  js/
+  images/
+templates/
+  base.html
+  index.html
+  about.html
+  projects.html
+  skills.html
+  sports.html
+  contact.html
 ```
 
 ## 1) Clone the Repository
