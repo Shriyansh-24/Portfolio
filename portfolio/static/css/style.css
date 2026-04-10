@@ -1,0 +1,268 @@
+/* ============================================================
+   style.css — Global styles for Shriyansh Pattanayak's portfolio
+   Uses CSS custom properties + Tailwind utility classes together.
+   ============================================================ */
+
+/* ---- Reset / Base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: #0a0a0a;
+    color: #e8e8e8;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Subtle grain overlay — adds depth to the flat dark background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* ---- Navigation ---- */
+.nav-blur {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Nav link base + active/hover states */
+.nav-link {
+    color: #888888;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #4ade80;
+    transition: width 0.25s ease;
+}
+.nav-link:hover { color: #e8e8e8; }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: #4ade80; }
+.nav-link.active::after { width: 100%; }
+
+/* ---- Scrolling ticker ---- */
+.ticker-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ticker-track {
+    display: inline-flex;
+    gap: 0;
+    animation: ticker-scroll 28s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+
+@keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ---- Fade-in on scroll ---- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delay helpers */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ---- Hero headline animation ---- */
+@keyframes hero-slide-up {
+    0%   { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.hero-word {
+    display: inline-block;
+    animation: hero-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---- Accent glow dot — decorative element ---- */
+.glow-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 12px 3px rgba(74, 222, 128, 0.5);
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 12px 3px rgba(74, 222, 128, 0.45); }
+    50%       { box-shadow: 0 0 24px 8px rgba(74, 222, 128, 0.2); }
+}
+
+/* ---- Project cards ---- */
+.project-card {
+    background: #111111;
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+.project-card::before {
+    /* Top-edge glow on hover */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4ade80, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.project-card:hover {
+    border-color: #2a2a2a;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,222,128,0.08);
+}
+.project-card:hover::before { opacity: 1; }
+
+/* ---- Tech tag pills ---- */
+.tech-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid #1e1e1e;
+    color: #888888;
+    background: transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+.tech-tag:hover {
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+/* ---- Skills grid ---- */
+.skill-pill {
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #e8e8e8;
+    background: #111111;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.skill-pill:hover {
+    border-color: #4ade80;
+    color: #4ade80;
+    background: rgba(74,222,128,0.04);
+}
+
+/* ---- Course badge ---- */
+.course-badge {
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 16px 20px;
+    background: #111111;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.course-badge:hover {
+    border-color: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ---- Photo placeholder ---- */
+.photo-placeholder {
+    background: #111111;
+    border: 1px dashed #2a2a2a;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    font-size: 0.75rem;
+    transition: border-color 0.2s;
+    overflow: hidden;
+}
+.photo-placeholder:hover { border-color: #4a4a4a; }
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* ---- Section label (small caps accent above heading) ---- */
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 12px;
+}
+.section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #4ade80;
+}
+
+/* ---- Contact link row ---- */
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid #1e1e1e;
+    border-radius: 14px;
+    background: #111111;
+    text-decoration: none;
+    color: #e8e8e8;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.contact-link:hover {
+    border-color: #4ade80;
+    transform: translateX(6px);
+    box-shadow: -4px 0 24px rgba(74,222,128,0.06);
+}
+
+/* ---- Highlight / featured card ring ---- */
+.card-featured {
+    border-color: rgba(74,222,128,0.25) !important;
+    box-shadow: 0 0 0 1px rgba(74,222,128,0.1), 0 8px 40px rgba(0,0,0,0.5);
+}
+
+/* ---- Scrollbar (webkit) ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4ade80; }
+
+/* ---- Selection ---- */
+::selection { background: rgba(74,222,128,0.25); color: #e8e8e8; }

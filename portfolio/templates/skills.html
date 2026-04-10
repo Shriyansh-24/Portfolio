@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block title %}Skills — Shriyansh Pattanayak{% endblock %}
+
+{% block content %}
+
+<!-- ================================================================
+     SKILLS HERO
+================================================================ -->
+<section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="max-w-3xl fade-in">
+        <p class="section-label">Toolkit</p>
+        <h1 class="font-display font-extrabold text-5xl md:text-6xl leading-tight mb-6">
+            What I work with<span class="text-accent">.</span>
+        </h1>
+        <p class="text-dim text-base leading-relaxed max-w-xl">
+            A snapshot of my technical skills — built through courses, projects, and
+            a lot of late-night debugging. Always adding to the list.
+        </p>
+    </div>
+</section>
+
+<!-- ================================================================
+     SCROLLING SKILLS TICKER
+     Like Yashasvee's site — a horizontal scroll strip of skills
+================================================================ -->
+<div class="ticker-wrapper border-y border-border py-5 my-2">
+    <div class="ticker-track">
+        {% set all_skills = [
+            "Python", "HTML", "CSS", "SQL", "TypeScript", "R (learning)",
+            "Flask", "Next.js", "Tailwind CSS", "Scikit-learn", "OpenCV",
+            "Pandas", "NumPy", "Git", "GitHub", "CS50", "Anthropic API",
+            "Bioinformatics", "Computer Vision", "Machine Learning", "AI",
+        ] %}
+        {% for s in all_skills %}
+        <span class="px-5 text-sm font-body font-medium text-text">{{ s }}</span>
+        <span class="text-border text-dim">·</span>
+        {% endfor %}
+        {% for s in all_skills %}
+        <span class="px-5 text-sm font-body font-medium text-text">{{ s }}</span>
+        <span class="text-border text-dim">·</span>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ================================================================
+     SKILL GROUPS
+     Categorized pills — Languages, AI/ML, Bio tools, Web, Learning
+================================================================ -->
+<section class="max-w-6xl mx-auto px-6 py-20 space-y-16">
+
+    <!-- Languages -->
+    <div class="fade-in">
+        <p class="section-label">Languages</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+            {% set languages = [
+                ("Python",  "🐍", "Primary language for all projects"),
+                ("HTML",    "🌐", "Structure and markup"),
+                ("CSS",     "🎨", "Styling and layout"),
+                ("SQL",     "🗃️", "Database queries"),
+                ("TypeScript", "📘", "Used in Prompt Optimizer"),
+                ("R",       "📊", "Currently learning for data analysis"),
+            ] %}
+            {% for name, emoji, note in languages %}
+            <div class="skill-pill group relative" title="{{ note }}">
+                <span>{{ emoji }}</span>
+                <span>{{ name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- AI & ML -->
+    <div class="fade-in delay-1">
+        <p class="section-label">AI & Machine Learning</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+            {% set ai_tools = [
+                ("Machine Learning", "🤖", "Scikit-learn based models"),
+                ("Computer Vision",  "👁️",  "OpenCV for biomechanics project"),
+                ("Prompt Engineering","💬", "Anthropic API + CS50 final project"),
+                ("Scikit-learn",     "📐", "Model training and evaluation"),
+                ("Pandas / NumPy",   "📊", "Data manipulation and analysis"),
+                ("Anthropic API",    "⚡", "Used in prompt optimizer"),
+            ] %}
+            {% for name, emoji, note in ai_tools %}
+            <div class="skill-pill" title="{{ note }}">
+                <span>{{ emoji }}</span>
+                <span>{{ name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Biology & Science Tools -->
+    <div class="fade-in delay-2">
+        <p class="section-label">Biology & Bioinformatics</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+            {% set bio_tools = [
+                ("Bioinformatics",   "🧬", "DNA sequence analysis"),
+                ("DNA Analysis",     "🔬", "Barcode classification"),
+                ("Data Analysis",    "📈", "Applied to biological datasets"),
+                ("OpenCV",           "🎥", "Biomechanics video analysis"),
+            ] %}
+            {% for name, emoji, note in bio_tools %}
+            <div class="skill-pill" title="{{ note }}">
+                <span>{{ emoji }}</span>
+                <span>{{ name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Web & Dev -->
+    <div class="fade-in delay-3">
+        <p class="section-label">Web & Dev Tools</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+            {% set web_tools = [
+                ("Flask",         "🌶️", "Backend for this portfolio"),
+                ("Tailwind CSS",  "🎨", "Utility-first CSS"),
+                ("Next.js",       "▲",  "Used in prompt optimizer"),
+                ("Git & GitHub",  "🗂️", "Version control for all projects"),
+            ] %}
+            {% for name, emoji, note in web_tools %}
+            <div class="skill-pill" title="{{ note }}">
+                <span>{{ emoji }}</span>
+                <span>{{ name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Currently Learning -->
+    <div class="fade-in delay-4">
+        <p class="section-label">Currently Learning</p>
+        <div class="flex flex-wrap gap-3 mt-4">
+            {% set learning = [
+                ("R",            "📊", "Statistical analysis for biology"),
+                ("CS50 (almost done)", "🎓", "Harvard's intro to CS"),
+            ] %}
+            {% for name, emoji, note in learning %}
+            <div class="skill-pill border-dashed opacity-80" title="{{ note }}">
+                <span>{{ emoji }}</span>
+                <span>{{ name }}</span>
+                <span class="text-xs text-accent ml-1">↗</span>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="text-muted text-xs mt-4 italic">Dashed border = in progress. Hover any skill for context.</p>
+    </div>
+
+</section>
+
+<!-- ================================================================
+     LEARNING PHILOSOPHY CALLOUT
+================================================================ -->
+<section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-6 py-16 fade-in">
+        <div class="border border-border rounded-2xl p-8 bg-surface max-w-2xl">
+            <span class="text-2xl mb-4 block">💡</span>
+            <h3 class="font-display font-bold text-xl mb-3">On Learning</h3>
+            <p class="text-dim text-sm leading-relaxed">
+                I don't wait until I know everything before I start building.
+                Every project on this site was built while I was still learning.
+                I think the fastest way to understand something deeply is to use it
+                to solve a real problem — even when you're halfway through the course.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

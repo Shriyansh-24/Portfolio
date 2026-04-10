@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block title %}About — Shriyansh Pattanayak{% endblock %}
+
+{% block content %}
+
+<!-- ================================================================
+     ABOUT HERO
+================================================================ -->
+<section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="max-w-3xl fade-in">
+        <p class="section-label">About Me</p>
+        <h1 class="font-display font-extrabold text-5xl md:text-6xl leading-tight mb-8">
+            Biology × Code × Track.<br/>
+            <span class="text-accent">All in.</span>
+        </h1>
+    </div>
+</section>
+
+<!-- ================================================================
+     PERSONAL STORY + PHOTO GRID
+================================================================ -->
+<section class="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-16 items-start">
+
+    <!-- Story text -->
+    <div>
+        <p class="text-dim leading-relaxed text-base mb-5 fade-in">
+            Hey — I'm Shriyansh. I'm in my final year of school in Doha, Qatar,
+            studying Physics, Chemistry, Biology, AI, and PE. That's a weird mix,
+            I know — but I think the most interesting things happen at the edges
+            between fields.
+        </p>
+        <p class="text-dim leading-relaxed text-base mb-5 fade-in delay-1">
+            My obsession is the space where biology and artificial intelligence collide.
+            I've always been fascinated by the complexity of living systems — and now
+            I get to use code to understand and augment them. From classifying DNA
+            sequences to analyzing biomechanics with computer vision, every project
+            I build answers a question that genuinely keeps me up at night.
+        </p>
+        <p class="text-dim leading-relaxed text-base mb-5 fade-in delay-2">
+            Outside of code, I'm a national-level track athlete. Running taught me
+            discipline, iteration, and how to be comfortable being bad at something
+            until you're not. Those same principles apply to everything I build.
+        </p>
+        <p class="text-dim leading-relaxed text-base fade-in delay-3">
+            I call myself a polymath in progress — I want to learn everything:
+            biology, CS, design, writing, finance. I think intellectual breadth
+            is a superpower that most people underestimate.
+        </p>
+    </div>
+
+    <!-- Photo grid -->
+    <div class="grid grid-cols-2 gap-3 fade-in delay-2">
+        <div class="photo-placeholder h-56 col-span-2">
+            <img
+                src="{{ url_for('static', filename='images/pfp.jpeg') }}"
+                alt="A picture of me!"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"
+            >
+        </div>
+        <div class="photo-placeholder h-36">
+            <img
+                src="{{ url_for('static', filename='images/hurdles.jpeg') }}"
+                alt="A picture of me!"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block;"
+            >
+        </div>
+        <div class="photo-placeholder h-36">
+            <span class="text-xs text-center px-2">
+                <img
+                src="{{ url_for('static', filename='images/study.png') }}"
+                alt="A picture of me!"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block;"
+            >
+            </span>
+        </div>
+        <div class="photo-placeholder h-36">
+            <span class="text-xs text-center px-2">
+                <img
+                src="{{ url_for('static', filename='images/spot.png') }}"
+                alt="A picture of me!"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block;"
+            >
+            </span>
+        </div>
+        <div class="photo-placeholder h-36">
+            <span class="text-xs text-center px-2">
+                <img
+                src="{{ url_for('static', filename='images/cool.jpeg') }}"
+                alt="A picture of me!"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block;"
+            >
+            </span>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================================================================
+     COURSES & CERTIFICATIONS
+     Cards for every completed/in-progress course across platforms
+================================================================ -->
+<section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+
+        <div class="mb-12 fade-in">
+            <p class="section-label">Learning Trail</p>
+            <h2 class="font-display font-bold text-3xl md:text-4xl">
+                Courses & Certifications
+            </h2>
+            <p class="text-dim mt-3 text-sm max-w-lg leading-relaxed">
+                I believe in structured learning. Here's every course that's shaped
+                how I think and build.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- CS50 -->
+            <div class="course-badge fade-in delay-1">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-2xl">🎓</span>
+                    <div>
+                        <h3 class="font-display font-semibold text-sm text-text">CS50: Intro to Computer Science</h3>
+                        <p class="text-dim text-xs mt-0.5">Harvard / edX</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs text-accent">
+                    <span class="glow-dot" style="width:6px;height:6px;"></span>
+                    Almost complete
+                </span>
+            </div>
+
+            <!-- IBM AI -->
+            <div class="course-badge fade-in delay-2">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-2xl">🤖</span>
+                    <div>
+                        <h3 class="font-display font-semibold text-sm text-text">AI Fundamentals</h3>
+                        <p class="text-dim text-xs mt-0.5">IBM / Coursera</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+                    ✓ Completed
+                </span>
+            </div>
+
+            <!-- DataCamp -->
+            <div class="course-badge fade-in delay-3">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-2xl">📊</span>
+                    <div>
+                        <h3 class="font-display font-semibold text-sm text-text">Introduction to R</h3>
+                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+                    ✓ Completed
+                </span>
+            </div>
+
+            <!-- DataCamp 2 -->
+            <div class="course-badge fade-in delay-1">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-2xl">🧠</span>
+                    <div>
+                        <h3 class="font-display font-semibold text-sm text-text">Introduction to Data</h3>
+                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+                    ✓ Completed
+                </span>
+            </div>
+
+            <!-- Add more courses here as needed — follow the same pattern -->
+            <div class="course-badge fade-in delay-1">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-2xl">🧠</span>
+                    <div>
+                        <h3 class="font-display font-semibold text-sm text-text">Introduction to AI For Work</h3>
+                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs text-accent">
+                    <span class="glow-dot" style="width:6px;height:6px;"></span>
+                    Almost complete
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     QUICK FACTS STRIP — personality details
+================================================================ -->
+<section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="fade-in">
+                <div class="font-display font-extrabold text-4xl text-accent mb-1">4+</div>
+                <div class="text-dim text-xs uppercase tracking-widest">AI Projects</div>
+            </div>
+            <div class="fade-in delay-1">
+                <div class="font-display font-extrabold text-4xl text-accent mb-1">5+</div>
+                <div class="text-dim text-xs uppercase tracking-widest">Courses Done</div>
+            </div>
+            <div class="fade-in delay-2">
+                <div class="font-display font-extrabold text-4xl text-accent mb-1">∞</div>
+                <div class="text-dim text-xs uppercase tracking-widest">Curiosity Level</div>
+            </div>
+            <div class="fade-in delay-3">
+                <div class="font-display font-extrabold text-4xl text-accent mb-1">🏃</div>
+                <div class="text-dim text-xs uppercase tracking-widest">Track Athlete</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

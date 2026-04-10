@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Shriyansh Pattanayak — Biology × AI{% endblock %}
+
+{% block content %}
+
+<!-- ================================================================
+     HERO SECTION
+     Bold typographic intro with live clock, AI tagline, and scroll ticker
+================================================================ -->
+<section class="min-h-[92vh] flex flex-col justify-center px-6 py-20 max-w-6xl mx-auto">
+
+    <div class="max-w-4xl">
+
+        <!-- Live clock — subtle personal detail like Yashasvee's site -->
+        <div class="flex items-center gap-3 mb-10 fade-in">
+            <span class="glow-dot"></span>
+            <span id="live-clock" class="font-body text-sm text-dim tracking-widest tabular-nums"></span>
+            <span class="text-dim text-sm">· Doha, Qatar</span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-6 fade-in delay-1">
+            <span class="hero-stagger block">Biology student building</span>
+            <span class="block">at the intersection of</span>
+            <span class="block text-accent">life and intelligence<span class="text-text">.</span></span>
+        </h1>
+
+        <!-- Sub-tagline with AI personality -->
+        <p class="font-body text-dim text-lg md:text-xl max-w-2xl leading-relaxed mb-10 fade-in delay-2">
+            12th grade. Studying Physics, Chemistry, Biology, AI & PE.
+            I use code to decode biology — from DNA barcodes to biomechanics.
+            Always learning, always building, always running.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap items-center gap-4 fade-in delay-3">
+            <a href="{{ url_for('projects') }}"
+               class="bg-accent text-bg font-display font-bold px-7 py-3 rounded-full hover:bg-green-300 transition-colors duration-200 text-sm tracking-wide">
+                View Projects
+            </a>
+            <a href="{{ url_for('contact') }}"
+               class="border border-border text-text font-body px-7 py-3 rounded-full hover:border-accent hover:text-accent transition-all duration-200 text-sm">
+                Say Hi →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================================================
+     SCROLLING KEYWORD TICKER
+     Infinite horizontal scroll of keywords that define Shriyansh
+================================================================ -->
+<div class="ticker-wrapper border-y border-border py-4 my-4">
+    <div class="ticker-track">
+        <!-- The list is duplicated so the loop appears seamless -->
+        {% set keywords = [
+            "Python", "Biology", "AI", "Track Athlete", "DNA Analysis",
+            "Computer Vision", "Flask", "CS50", "Doha", "Bioinformatics",
+            "Prompt Engineering", "Machine Learning", "National Athlete",
+            "SQL", "HTML/CSS", "12th Grade", "IBM AI", "DataCamp",
+        ] %}
+        {% for kw in keywords %}
+        <span class="px-6 text-dim text-sm font-body font-medium">{{ kw }}</span>
+        <span class="text-border">·</span>
+        {% endfor %}
+        {% for kw in keywords %}
+        <span class="px-6 text-dim text-sm font-body font-medium">{{ kw }}</span>
+        <span class="text-border">·</span>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ================================================================
+     FEATURED WORK PREVIEW
+     Teaser cards linking to the Projects page — AI personality in copy
+================================================================ -->
+<section class="max-w-6xl mx-auto px-6 py-24">
+
+    <div class="fade-in mb-12">
+        <p class="section-label">Selected Work</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl">
+            Projects where biology<br/>meets code.
+        </h2>
+        <p class="text-dim mt-3 max-w-lg text-sm leading-relaxed">
+            I build tools that sit at the intersection of life sciences and AI —
+            because the most interesting problems live in the space between disciplines.
+        </p>
+    </div>
+
+    <!-- Two preview cards -->
+    <div class="grid md:grid-cols-2 gap-5 mb-10">
+
+        <!-- Card 1 -->
+        <div class="project-card card-featured fade-in delay-1">
+            <span class="text-3xl mb-4 block">🏃</span>
+            <h3 class="font-display font-bold text-xl mb-2">AI Biomechanics Analyzer</h3>
+            <p class="text-dim text-sm leading-relaxed mb-5">
+                Computer Vision meets sports science. Analyzes joint kinematics from video —
+                built by a national-level sprinter who wanted to understand his own movement.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">OpenCV</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card fade-in delay-2">
+            <span class="text-3xl mb-4 block">🧬</span>
+            <h3 class="font-display font-bold text-xl mb-2">WildGuard DNA Classifier</h3>
+            <p class="text-dim text-sm leading-relaxed mb-5">
+                High-precision genetic barcode classifier for wildlife forensics.
+                Identifying species from DNA to combat illegal trafficking — where AI protects life.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Bioinformatics</span>
+                <span class="tech-tag">ML</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fade-in">
+        <a href="{{ url_for('projects') }}" class="text-accent text-sm font-medium hover:underline underline-offset-4">
+            View all projects →
+        </a>
+    </div>
+
+</section>
+
+<!-- ================================================================
+     ABOUT TEASER STRIP
+     Quick personal intro linking to the full About page
+================================================================ -->
+<section class="border-t border-border">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+        <div class="fade-in">
+            <p class="section-label">A Bit About Me</p>
+            <h2 class="font-display font-bold text-3xl md:text-4xl mb-5">
+                Polymath in progress.<br/>Sprinter by choice.
+            </h2>
+            <p class="text-dim leading-relaxed text-sm mb-6">
+                I'm Shriyansh — a 12th grader in Doha who spends mornings at the track
+                and evenings writing Python. I believe curiosity compounds: the more you
+                learn across domains, the more you can create at their edges.
+            </p>
+            <a href="{{ url_for('about') }}" class="border border-border text-text text-sm px-6 py-2.5 rounded-full hover:border-accent hover:text-accent transition-all duration-200 inline-block">
+                Read more about me →
+            </a>
+        </div>
+
+        <!-- Photo placeholder grid -->
+        <div class="grid grid-cols-2 gap-3 fade-in delay-2">
+            <div class="photo-placeholder h-48 col-span-2">
+                <img
+                    src="{{ url_for('static', filename='images/pfp.jpeg') }}"
+                    alt="A picture of me!"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;"
+                >
+            </div>
+            <div class="photo-placeholder h-32">
+                    <img
+                    src="{{ url_for('static', filename='images/blocks.jpeg') }}"
+                    alt="A picture of me!"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block;">
+            </div>
+            <div class="photo-placeholder h-32">
+                    <img
+                    src="{{ url_for('static', filename='images/desk.jpeg') }}"
+                    alt="A picture of me!"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 10%; display: block;">>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
