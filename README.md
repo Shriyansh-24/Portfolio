@@ -87,6 +87,7 @@ Open in browser:
 
 - The app runs with `debug=True` in `app.py` for auto-reload during development.
 - Keep images inside `static/images/` and reference them with `url_for('static', filename='images/<name>')`.
+- Going to add certificates PDF on cliking the respective courses.
 
 ## Troubleshooting
 
