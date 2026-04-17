@@ -115,77 +115,133 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
+            <!--
+                Credential framework:
+                1) Put your credential URL in data-credential-link
+                2) Clicking the title row toggles the credential panel
+            -->
+
             <!-- CS50 -->
-            <div class="course-badge fade-in delay-1">
-                <div class="flex items-start gap-3 mb-3">
-                    <span class="text-2xl">🎓</span>
-                    <div>
-                        <h3 class="font-display font-semibold text-sm text-text">CS50: Intro to Computer Science</h3>
-                        <p class="text-dim text-xs mt-0.5">Harvard / edX</p>
+            <article class="course-badge credential-card fade-in delay-1" data-credential-link="">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-cs50">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🎓</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">CS50: Intro to Computer Science</h3>
+                            <p class="text-dim text-xs mt-0.5">Harvard / edX</p>
+                        </div>
                     </div>
-                </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-accent">
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-accent mt-2">
                     <span class="glow-dot" style="width:6px;height:6px;"></span>
                     Almost complete
                 </span>
-            </div>
+                <div class="credential-panel" id="credential-cs50" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
+                </div>
+            </article>
 
             <!-- IBM AI -->
-            <div class="course-badge fade-in delay-2">
-                <div class="flex items-start gap-3 mb-3">
-                    <span class="text-2xl">🤖</span>
-                    <div>
-                        <h3 class="font-display font-semibold text-sm text-text">AI Fundamentals</h3>
-                        <p class="text-dim text-xs mt-0.5">IBM / Coursera</p>
+            <article class="course-badge credential-card fade-in delay-2" data-credential-link="https://www.credly.com/badges/03afe2c9-c6c3-47be-82df-0185453be871/public_url">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-ibm-ai">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🤖</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">AI Fundamentals</h3>
+                            <p class="text-dim text-xs mt-0.5">IBM / Coursera</p>
+                        </div>
                     </div>
-                </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim mt-2">
                     ✓ Completed
                 </span>
-            </div>
-
-            <!-- DataCamp -->
-            <div class="course-badge fade-in delay-3">
-                <div class="flex items-start gap-3 mb-3">
-                    <span class="text-2xl">📊</span>
-                    <div>
-                        <h3 class="font-display font-semibold text-sm text-text">Introduction to R</h3>
-                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
-                    </div>
+                <div class="credential-panel" id="credential-ibm-ai" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+            </article>
+
+            <!-- DataCamp: Intro to R -->
+            <article class="course-badge credential-card fade-in delay-3" data-credential-link="https://www.datacamp.com/completed/statement-of-accomplishment/course/a8a49c6a9c8a7f3113ec4a3402cbbb2f29ade895">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-r">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">📊</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">Introduction to R</h3>
+                            <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                        </div>
+                    </div>
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim mt-2">
                     ✓ Completed
                 </span>
-            </div>
-
-            <!-- DataCamp 2 -->
-            <div class="course-badge fade-in delay-1">
-                <div class="flex items-start gap-3 mb-3">
-                    <span class="text-2xl">🧠</span>
-                    <div>
-                        <h3 class="font-display font-semibold text-sm text-text">Introduction to Data</h3>
-                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
-                    </div>
+                <div class="credential-panel" id="credential-r" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-dim">
+            </article>
+
+            <!-- DataCamp: Intro to Data -->
+            <article class="course-badge credential-card fade-in delay-1" data-credential-link="https://www.datacamp.com/completed/statement-of-accomplishment/course/eea9b096d6572e60e639f7331240521816845734">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-data">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🧠</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">Introduction to Data</h3>
+                            <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                        </div>
+                    </div>
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim mt-2">
                     ✓ Completed
                 </span>
-            </div>
-
-            <!-- Add more courses here as needed — follow the same pattern -->
-            <div class="course-badge fade-in delay-1">
-                <div class="flex items-start gap-3 mb-3">
-                    <span class="text-2xl">🧠</span>
-                    <div>
-                        <h3 class="font-display font-semibold text-sm text-text">Introduction to AI For Work</h3>
-                        <p class="text-dim text-xs mt-0.5">DataCamp</p>
-                    </div>
+                <div class="credential-panel" id="credential-data" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
                 </div>
-                <span class="inline-flex items-center gap-1.5 text-xs text-accent">
+            </article>
+
+            <!-- Claude 101-->
+            <article class="course-badge credential-card fade-in delay-1" data-credential-link="https://verify.skilljar.com/c/qwx7b5e5vdti">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-claude">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🧠</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">Claude 101</h3>
+                            <p class="text-dim text-xs mt-0.5">Antropic</p>
+                        </div>
+                    </div>
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-dim mt-2">
+                    ✓ Completed
+                </span>
+                <div class="credential-panel" id="credential-claude" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
+                </div>
+            </article>
+
+            <!-- DataCamp: AI for Work -->
+            <article class="course-badge credential-card fade-in delay-2" data-credential-link="">
+                <button class="credential-toggle" type="button" aria-expanded="false" aria-controls="credential-ai-work">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🧠</span>
+                        <div class="text-left">
+                            <h3 class="font-display font-semibold text-sm text-text">Introduction to AI For Work</h3>
+                            <p class="text-dim text-xs mt-0.5">DataCamp</p>
+                        </div>
+                    </div>
+                    <span class="credential-chevron" aria-hidden="true">▾</span>
+                </button>
+                <span class="inline-flex items-center gap-1.5 text-xs text-accent mt-2">
                     <span class="glow-dot" style="width:6px;height:6px;"></span>
                     Almost complete
                 </span>
-            </div>
+                <div class="credential-panel" id="credential-ai-work" hidden>
+                    <a class="credential-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Add credential link</a>
+                </div>
+            </article>
 
         </div>
     </div>

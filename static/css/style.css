@@ -191,6 +191,72 @@ body::before {
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
+.credential-toggle {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.credential-chevron {
+    color: #888888;
+    line-height: 1;
+    margin-top: 6px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.credential-toggle[aria-expanded="true"] .credential-chevron {
+    transform: rotate(180deg);
+    color: #4ade80;
+}
+
+.credential-panel {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #1e1e1e;
+    display: grid;
+    gap: 10px;
+}
+
+.credential-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.4);
+    border-radius: 999px;
+    padding: 6px 12px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.credential-link:hover {
+    background: rgba(74, 222, 128, 0.08);
+    border-color: #4ade80;
+}
+
+.credential-link[aria-disabled="true"] {
+    color: #777777;
+    border-color: #2a2a2a;
+    cursor: default;
+}
+
+.credential-link[aria-disabled="true"]:hover {
+    background: transparent;
+}
+
 /* ---- Photo placeholder ---- */
 .photo-placeholder {
     background: #111111;

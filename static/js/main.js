@@ -76,3 +76,41 @@ function staggerHeroWords() {
 }
 
 staggerHeroWords();
+
+// ============================================================
+// 5. CREDENTIAL CARDS — expandable certification proof section
+//    Uses data-credential-link from HTML
+// ============================================================
+function initCredentialCards() {
+    const cards = document.querySelectorAll('.credential-card');
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        const toggle = card.querySelector('.credential-toggle');
+        const panel = card.querySelector('.credential-panel');
+        const linkEl = card.querySelector('.credential-link');
+
+        if (!toggle || !panel || !linkEl) return;
+
+        const credentialLink = (card.dataset.credentialLink || '').trim();
+
+        if (credentialLink) {
+            linkEl.href = credentialLink;
+            linkEl.textContent = 'View credential';
+            linkEl.setAttribute('aria-disabled', 'false');
+            linkEl.removeAttribute('tabindex');
+        } else {
+            linkEl.href = '#';
+            linkEl.setAttribute('aria-disabled', 'true');
+            linkEl.setAttribute('tabindex', '-1');
+        }
+
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            panel.hidden = expanded;
+        });
+    });
+}
+
+initCredentialCards();
