@@ -7,6 +7,10 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Ensure local edits in templates/static are reflected without stale caching.
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
+
 # ---------------------------------------------------------------------------
 # Route definitions — each maps a URL path to its HTML template
 # ---------------------------------------------------------------------------
